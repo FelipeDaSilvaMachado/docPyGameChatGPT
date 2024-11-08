@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação Explicativa e Exemplos de Funções do Pygame</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+
+        pre {
+            background-color: #eaeaea;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #ccc;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Documentação Explicativa e Exemplos de Funções do Pygame</h1>
+
+    <h2>Inicialização e Configuração Básica</h2>
+    <ul>
+        <li><b>pygame.init()</b><br>
+            Inicializa todos os módulos do Pygame (gráficos, sons, etc.), deixando-os prontos para uso.
+            <pre><code>import pygame\npygame.init()</code></pre>
+        </li>
+        <li><b>pygame.quit()</b><br>
+            Encerra todos os módulos do Pygame.
+            <pre><code>pygame.quit()</code></pre>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h2>Tela e Desenho</h2>
+    <ul>
+        <li><b>pygame.display.set_mode((largura, altura))</b><br>
+            Cria uma janela de jogo.
+            <pre><code>screen = pygame.display.set_mode((720, 480))</code></pre>
+        </li>
+        <li><b>pygame.display.set_caption("Título")</b><br>
+            Define o título da janela.
+            <pre><code>pygame.display.set_caption("Meu Jogo")</code></pre>
+        </li>
+        <li><b>screen.fill(cor)</b><br>
+            Preenche a tela com uma cor específica.
+            <pre><code>screen.fill("purple")</code></pre>
+        </li>
+        <li><b>pygame.display.flip()</b><br>
+            Atualiza toda a tela.
+            <pre><code>pygame.display.flip()</code></pre>
+        </li>
+        <li><b>pygame.display.update([rects])</b><br>
+            Atualiza áreas específicas da tela.
+            <pre><code>pygame.display.update()</code></pre>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h2>Controle de Tempo</h2>
+    <ul>
+        <li><b>pygame.time.Clock()</b><br>
+            Cria um objeto Clock para controlar a taxa de quadros.
+            <pre><code>clock = pygame.time.Clock()</code></pre>
+        </li>
+        <li><b>clock.tick(FPS)</b><br>
+            Define a taxa de quadros por segundo.
+            <pre><code>clock.tick(60)</code></pre>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h2>Eventos e Entrada</h2>
+    <ul>
+        <li><b>pygame.event.get()</b><br>
+            Retorna uma lista de eventos.
+            <pre><code>for event in pygame.event.get():\n    if event.type == pygame.QUIT:\n        running = False</code></pre>
+        </li>
+        <li><b>pygame.key.get_pressed()</b><br>
+            Verifica teclas pressionadas.
+            <pre><code>keys = pygame.key.get_pressed()\nif keys[pygame.K_LEFT]:\n    print("Esquerda!")</code></pre>
+        </li>
+        <li><b>pygame.mouse.get_pos()</b><br>
+            Retorna a posição do mouse.
+            <pre><code>mouse_pos = pygame.mouse.get_pos()</code></pre>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h2>Sons e Música</h2>
+    <ul>
+        <li><b>pygame.mixer.init()</b><br>
+            Inicializa o mixer de áudio.
+            <pre><code>pygame.mixer.init()</code></pre>
+        </li>
+        <li><b>pygame.mixer.Sound('arquivo.wav')</b><br>
+            Carrega um efeito sonoro.
+            <pre><code>som = pygame.mixer.Sound('beep.wav')</code></pre>
+        </li>
+        <li><b>sound.play()</b><br>
+            Reproduz o som carregado.
+            <pre><code>som.play()</code></pre>
+        </li>
+        <li><b>pygame.mixer.music.load('musica.mp3')</b><br>
+            Carrega uma música de fundo.
+            <pre><code>pygame.mixer.music.load('musica.mp3')</code></pre>
+        </li>
+        <li><b>pygame.mixer.music.play(loops=0)</b><br>
+            Reproduz a música.
+            <pre><code>pygame.mixer.music.play(-1)</code></pre>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h2>Desenho de Formas</h2>
+    <ul>
+        <li><b>pygame.draw.rect(surface, cor, (x, y, largura, altura))</b><br>
+            Desenha um retângulo.
+            <pre><code>pygame.draw.rect(screen, "blue", (50, 50, 100, 50))</code></pre>
+        </li>
+        <li><b>pygame.draw.circle(surface, cor, (x, y), raio)</b><br>
+            Desenha um círculo.
+            <pre><code>pygame.draw.circle(screen, "red", (200, 200), 30)</code></pre>
+        </li>
+        <li><b>pygame.draw.line(surface, cor, ponto_inicial, ponto_final, espessura)</b><br>
+            Desenha uma linha.
+            <pre><code>pygame.draw.line(screen, "green", (300, 300), (400, 400), 5)</code></pre>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h2>Textos</h2>
+    <ul>
+        <li><b>pygame.font.Font(nome_da_fonte, tamanho)</b><br>
+            Carrega uma fonte.
+            <pre><code>font = pygame.font.Font(None, 36)</code></pre>
+        </li>
+        <li><b>font.render(texto, anti_aliasing, cor)</b><br>
+            Renderiza texto.
+            <pre><code>text_surface = font.render("Olá, Pygame!", True, "black")\nscreen.blit(text_surface, (150, 150))</code></pre>
+        </li>
+    </ul>
+
+    <p>Essas são as funções e chamadas mais comuns no Pygame, acompanhadas de exemplos de uso para facilitar o
+        entendimento.</p>
+
+</body>
+
+</html>
